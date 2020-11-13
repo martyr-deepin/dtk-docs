@@ -41,11 +41,13 @@
       search: {
           noData: {
             '/zh-cn/': '未找到结果!',
+            '/es/': 'No se han encontrado resultados!',
             '/': 'No results!',
           },
           paths: 'auto',
           placeholder: {
             '/zh-cn/': '搜索',
+            '/es/': 'busca en',
             '/': 'Search',
           },
         },
@@ -56,7 +58,10 @@
               if(vm.route.file.indexOf('zh-cn') !== -1)
               {
                 var editHtml = '<p align="right"><a href='+ url +'>在GitHub上编辑</a></p>';
-              } else {
+              } else (vm.route.file.indexOf('es') !== -1)
+              {
+                var editHtml = '<p align="right"><a href='+ url +'>Editar en GitHub</a></p>';
+              }else{
               var editHtml = '<p align="right"><a href='+ url +'>Edit on GitHub</a></p>';
               }
               return (
