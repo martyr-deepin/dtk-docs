@@ -3,20 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>DTK document</title>
+  <link rel="icon" href="_media/dtk.svg" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <style>
+    :root {
+  --base-background-color: rgb(244, 255, 247);
+  --base-font-size: 18px;
+  --content-max-width    : 55em; 
+  --theme-color   : rgb(29, 61, 82);
+  --code-font-family   : Consolas, Menlo, Monaco, monospace;
+  --cover-background-blend-mode  : ;
+  --sidebar-border-color : rgb(172, 127, 6);
+  --cover-background-color : rgb(200, 236, 152);
+  --cover-heading-color  : rgb(9, 168, 173);
+}
+  </style>
 </head>
 <body>
   <div id="app">dtk-docs is loading!</div>
   <script>
     window.$docsify = {
+      themeable: {
+          readyTransition : true, // default
+          responsiveTables: true  // default
+      },
+      name: "dtk document",
       repo: 'linuxdeepin/dtk-docs',
       maxLevel: 4,
       subMaxLevel: 2,
+      logo: '/_media/dtk.svg',
       loadSidebar: true,
       loadNavbar: true,
+      coverpage: true,
       search: {
           noData: {
             '/zh-cn/': '未找到结果!',
@@ -28,9 +49,30 @@
             '/': 'Search',
           },
         },
-    }
+      plugins: [ 
+        function(hook, vm) {
+            hook.beforeEach(function(html) {
+              url = 'https://github.com/linuxdeepin/dtk-docs/blob/main/docs/' + vm.route.file;
+              if(vm.route.file.indexOf('zh-cn') !== -1)
+              {
+                var editHtml = '<p align="right"><a href='+ url +'>在GitHub上编辑</a></p>';
+              } else {
+              var editHtml = '<p align="right"><a href='+ url +'>Edit on GitHub</a></p>';
+              }
+              return (
+                editHtml + '\n\n' +
+                html
+              );
+            });
+          },
+      ], 
+    };
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
 </body>
 </html>
