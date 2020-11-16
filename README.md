@@ -13,6 +13,7 @@ Through the DTK document, we hope you can master more knowledge and skills. Then
 ## Contributors
 This project exists thanks to all the people who contribute.
 [[Contribute](CONTRIBUTING.md)]
+<a href="https://github.com/linuxdeepin/dtk-docs/graphs/contributors"><img src="https://opencollective.com/dtk-docs/contributors.svg?width=890" /></a>
 
 ## License
 
