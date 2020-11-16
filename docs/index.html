@@ -58,11 +58,11 @@
               if(vm.route.file.indexOf('zh-cn') !== -1)
               {
                 var editHtml = '<p align="right"><a href='+ url +'>在GitHub上编辑</a></p>';
-              } else (vm.route.file.indexOf('es') !== -1)
+              } else if (vm.route.file.indexOf('es') !== -1)
               {
                 var editHtml = '<p align="right"><a href='+ url +'>Editar en GitHub</a></p>';
-              }else{
-              var editHtml = '<p align="right"><a href='+ url +'>Edit on GitHub</a></p>';
+              } else{
+                var editHtml = '<p align="right"><a href='+ url +'>Edit on GitHub</a></p>';
               }
               return (
                 editHtml + '\n\n' +
