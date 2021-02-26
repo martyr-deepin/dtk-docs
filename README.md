@@ -4,6 +4,9 @@
   </a>
 </p>
 
+# **Warehouse is archived, please go to [docs.deepin.org](https://docs.deepin.org) to view**
+
+<br>
 
 # DTK document
 The DTK document is an open source document. Everyone can participate in the editing of the document. At the same time, we also welcome the translation of the document into any language.
